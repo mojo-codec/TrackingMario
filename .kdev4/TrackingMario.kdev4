@@ -1,0 +1,41 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x1a\x00T\x00r\x00a\x00c\x00k\x00i\x00n\x00g\x00M\x00a\x00r\x00i\x00o)
+
+[CMake]
+Build Directory Count=1
+Current Build Directory Index=0
+ProjectRootRelative=./
+
+[CMake][CMake Build Directory 0]
+Build Directory Path=file:///media/veracrypt1/TrackingMario/build
+Build Type=Debug
+CMake Binary=file:///usr/bin/cmake
+Environment Profile=
+Extra Arguments=
+Install Directory=
+
+[Defines And Includes][Compiler]
+Name=GCC
+Path=gcc
+Type=GCC
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=TrackingMario
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=/dev/shm/RCNN/RCNN_net/Prediction/RCNN /dev/shm/RCNN/超級瑪莉_fm4.mp4
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x1a\x00T\x00r\x00a\x00c\x00k\x00i\x00n\x00g\x00M\x00a\x00r\x00i\x00o\x00\x00\x00\x1a\x00T\x00r\x00a\x00c\x00k\x00i\x00n\x00g\x00M\x00a\x00r\x00i\x00o)
+Dependency Action=Build
+EnvironmentGroup=
+Executable=file:///media/veracrypt1/TrackingMario/
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=TrackingMario,TrackingMario
+Use External Terminal=false
+Working Directory=
+isExecutable=false

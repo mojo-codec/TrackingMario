@@ -1,0 +1,8678 @@
+meta_graphs {
+  meta_info_def {
+    tags: "serve"
+  }
+  graph_def {
+    node {
+      name: "INPUT2018/Placeholder"
+      op: "Placeholder"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 224
+            }
+            dim {
+              size: 256
+            }
+            dim {
+              size: 3
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "TARGET2018/Placeholder"
+      op: "Placeholder"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 22320
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "NoOp"
+      op: "NoOp"
+      input: "^Assign"
+      input: "^Assign_1"
+      input: "^Assign_10"
+      input: "^Assign_11"
+      input: "^Assign_12"
+      input: "^Assign_13"
+      input: "^Assign_14"
+      input: "^Assign_15"
+      input: "^Assign_16"
+      input: "^Assign_17"
+      input: "^Assign_18"
+      input: "^Assign_19"
+      input: "^Assign_2"
+      input: "^Assign_20"
+      input: "^Assign_21"
+      input: "^Assign_22"
+      input: "^Assign_23"
+      input: "^Assign_24"
+      input: "^Assign_25"
+      input: "^Assign_26"
+      input: "^Assign_27"
+      input: "^Assign_28"
+      input: "^Assign_29"
+      input: "^Assign_3"
+      input: "^Assign_4"
+      input: "^Assign_5"
+      input: "^Assign_6"
+      input: "^Assign_7"
+      input: "^Assign_8"
+      input: "^Assign_9"
+    }
+    node {
+      name: "NoOp_1"
+      op: "NoOp"
+    }
+    node {
+      name: "SAVEW2018/Variable"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 3
+            }
+            dim {
+              size: 3
+            }
+            dim {
+              size: 3
+            }
+            dim {
+              size: 8
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 8
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\003\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform"
+      op: "RandomUniform"
+      input: "Const/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_1/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply"
+      op: "Mul"
+      input: "RandomUniform"
+      input: "Const_1/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign"
+      op: "Assign"
+      input: "SAVEW2018/Variable"
+      input: "Multiply"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_2/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 8
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_3/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill"
+      op: "Fill"
+      input: "Const_2/Const"
+      input: "Const_3/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_1"
+      op: "Assign"
+      input: "SAVEB2018/Variable"
+      input: "Fill"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D"
+      op: "Conv2D"
+      input: "INPUT2018/Placeholder"
+      input: "SAVEW2018/Variable"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd"
+      op: "BiasAdd"
+      input: "Conv2D"
+      input: "SAVEB2018/Variable"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu"
+      op: "Relu"
+      input: "BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_1"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 3
+            }
+            dim {
+              size: 3
+            }
+            dim {
+              size: 8
+            }
+            dim {
+              size: 16
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_1"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 16
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_4/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\003\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000\010\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_1"
+      op: "RandomUniform"
+      input: "Const_4/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_5/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_1"
+      op: "Mul"
+      input: "RandomUniform_1"
+      input: "Const_5/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_2"
+      op: "Assign"
+      input: "SAVEW2018/Variable_1"
+      input: "Multiply_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_6/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 16
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_7/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_1"
+      op: "Fill"
+      input: "Const_6/Const"
+      input: "Const_7/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_3"
+      op: "Assign"
+      input: "SAVEB2018/Variable_1"
+      input: "Fill_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_1"
+      op: "Conv2D"
+      input: "Relu"
+      input: "SAVEW2018/Variable_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_1"
+      op: "BiasAdd"
+      input: "Conv2D_1"
+      input: "SAVEB2018/Variable_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_1"
+      op: "Relu"
+      input: "BiasAdd_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "MaxPool"
+      op: "MaxPool"
+      input: "Relu_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 3
+            i: 3
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 2
+            i: 2
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_2"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 3
+            }
+            dim {
+              size: 3
+            }
+            dim {
+              size: 16
+            }
+            dim {
+              size: 32
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_2"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 32
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_8/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\003\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000 \000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_2"
+      op: "RandomUniform"
+      input: "Const_8/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_9/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_2"
+      op: "Mul"
+      input: "RandomUniform_2"
+      input: "Const_9/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_4"
+      op: "Assign"
+      input: "SAVEW2018/Variable_2"
+      input: "Multiply_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_10/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 32
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_11/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_2"
+      op: "Fill"
+      input: "Const_10/Const"
+      input: "Const_11/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_5"
+      op: "Assign"
+      input: "SAVEB2018/Variable_2"
+      input: "Fill_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_2"
+      op: "Conv2D"
+      input: "MaxPool"
+      input: "SAVEW2018/Variable_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_2"
+      op: "BiasAdd"
+      input: "Conv2D_2"
+      input: "SAVEB2018/Variable_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "MaxPool_1"
+      op: "MaxPool"
+      input: "BiasAdd_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 3
+            i: 3
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 2
+            i: 2
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_3"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 4
+            }
+            dim {
+              size: 4
+            }
+            dim {
+              size: 32
+            }
+            dim {
+              size: 512
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_3"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 512
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_12/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\004\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000 \000\000\000\000\000\000\000\000\002\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_3"
+      op: "RandomUniform"
+      input: "Const_12/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_13/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_3"
+      op: "Mul"
+      input: "RandomUniform_3"
+      input: "Const_13/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_6"
+      op: "Assign"
+      input: "SAVEW2018/Variable_3"
+      input: "Multiply_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_14/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 512
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_15/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_3"
+      op: "Fill"
+      input: "Const_14/Const"
+      input: "Const_15/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_7"
+      op: "Assign"
+      input: "SAVEB2018/Variable_3"
+      input: "Fill_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_3"
+      op: "Conv2D"
+      input: "MaxPool_1"
+      input: "SAVEW2018/Variable_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 2
+            i: 2
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_3"
+      op: "BiasAdd"
+      input: "Conv2D_3"
+      input: "SAVEB2018/Variable_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_2"
+      op: "Relu"
+      input: "BiasAdd_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_4"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 512
+            }
+            dim {
+              size: 128
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_4"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 128
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_16/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\000\002\000\000\000\000\000\000\200\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_4"
+      op: "RandomUniform"
+      input: "Const_16/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_17/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_4"
+      op: "Mul"
+      input: "RandomUniform_4"
+      input: "Const_17/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_8"
+      op: "Assign"
+      input: "SAVEW2018/Variable_4"
+      input: "Multiply_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_18/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 128
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_19/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_4"
+      op: "Fill"
+      input: "Const_18/Const"
+      input: "Const_19/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_9"
+      op: "Assign"
+      input: "SAVEB2018/Variable_4"
+      input: "Fill_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_4"
+      op: "Conv2D"
+      input: "Relu_2"
+      input: "SAVEW2018/Variable_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_4"
+      op: "BiasAdd"
+      input: "Conv2D_4"
+      input: "SAVEB2018/Variable_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_3"
+      op: "Relu"
+      input: "BiasAdd_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_5"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 128
+            }
+            dim {
+              size: 14
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_5"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 14
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_20/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\200\000\000\000\000\000\000\000\016\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_5"
+      op: "RandomUniform"
+      input: "Const_20/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_21/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_5"
+      op: "Mul"
+      input: "RandomUniform_5"
+      input: "Const_21/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_10"
+      op: "Assign"
+      input: "SAVEW2018/Variable_5"
+      input: "Multiply_5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_22/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 14
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_23/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_5"
+      op: "Fill"
+      input: "Const_22/Const"
+      input: "Const_23/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_11"
+      op: "Assign"
+      input: "SAVEB2018/Variable_5"
+      input: "Fill_5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_5"
+      op: "Conv2D"
+      input: "Relu_3"
+      input: "SAVEW2018/Variable_5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_5"
+      op: "BiasAdd"
+      input: "Conv2D_5"
+      input: "SAVEB2018/Variable_5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Const_24/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\016\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape"
+      op: "Reshape"
+      input: "BiasAdd_5"
+      input: "Const_24/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Softmax"
+      op: "Softmax"
+      input: "Reshape"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Const_25/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\306-\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_1"
+      op: "Reshape"
+      input: "Softmax"
+      input: "Const_25/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_6"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 8
+            }
+            dim {
+              size: 4
+            }
+            dim {
+              size: 32
+            }
+            dim {
+              size: 512
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_6"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 512
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_26/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\010\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000 \000\000\000\000\000\000\000\000\002\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_6"
+      op: "RandomUniform"
+      input: "Const_26/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_27/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_6"
+      op: "Mul"
+      input: "RandomUniform_6"
+      input: "Const_27/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_12"
+      op: "Assign"
+      input: "SAVEW2018/Variable_6"
+      input: "Multiply_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_28/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 512
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_29/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_6"
+      op: "Fill"
+      input: "Const_28/Const"
+      input: "Const_29/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_13"
+      op: "Assign"
+      input: "SAVEB2018/Variable_6"
+      input: "Fill_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_6"
+      op: "Conv2D"
+      input: "MaxPool_1"
+      input: "SAVEW2018/Variable_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 4
+            i: 2
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_6"
+      op: "BiasAdd"
+      input: "Conv2D_6"
+      input: "SAVEB2018/Variable_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_4"
+      op: "Relu"
+      input: "BiasAdd_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_7"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 512
+            }
+            dim {
+              size: 128
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_7"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 128
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_30/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\000\002\000\000\000\000\000\000\200\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_7"
+      op: "RandomUniform"
+      input: "Const_30/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_31/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_7"
+      op: "Mul"
+      input: "RandomUniform_7"
+      input: "Const_31/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_14"
+      op: "Assign"
+      input: "SAVEW2018/Variable_7"
+      input: "Multiply_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_32/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 128
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_33/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_7"
+      op: "Fill"
+      input: "Const_32/Const"
+      input: "Const_33/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_15"
+      op: "Assign"
+      input: "SAVEB2018/Variable_7"
+      input: "Fill_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_7"
+      op: "Conv2D"
+      input: "Relu_4"
+      input: "SAVEW2018/Variable_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_7"
+      op: "BiasAdd"
+      input: "Conv2D_7"
+      input: "SAVEB2018/Variable_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_5"
+      op: "Relu"
+      input: "BiasAdd_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_8"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 128
+            }
+            dim {
+              size: 14
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_8"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 14
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_34/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\200\000\000\000\000\000\000\000\016\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_8"
+      op: "RandomUniform"
+      input: "Const_34/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_35/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_8"
+      op: "Mul"
+      input: "RandomUniform_8"
+      input: "Const_35/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_16"
+      op: "Assign"
+      input: "SAVEW2018/Variable_8"
+      input: "Multiply_8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_36/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 14
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_37/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_8"
+      op: "Fill"
+      input: "Const_36/Const"
+      input: "Const_37/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_17"
+      op: "Assign"
+      input: "SAVEB2018/Variable_8"
+      input: "Fill_8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_8"
+      op: "Conv2D"
+      input: "Relu_5"
+      input: "SAVEW2018/Variable_8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_8"
+      op: "BiasAdd"
+      input: "Conv2D_8"
+      input: "SAVEB2018/Variable_8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Const_38/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\016\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_2"
+      op: "Reshape"
+      input: "BiasAdd_8"
+      input: "Const_38/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Softmax_1"
+      op: "Softmax"
+      input: "Reshape_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Const_39/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\n\026\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_3"
+      op: "Reshape"
+      input: "Softmax_1"
+      input: "Const_39/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Const_40/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "Concat"
+      op: "ConcatV2"
+      input: "Reshape_1"
+      input: "Reshape_3"
+      input: "Const_40/Const"
+      attr {
+        key: "N"
+        value {
+          i: 2
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tidx"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Const_41/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\033\000\000\000\037\000\000\000\016\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_4"
+      op: "Reshape"
+      input: "Reshape_1"
+      input: "Const_41/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Const_42/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\r\000\000\000\037\000\000\000\016\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_5"
+      op: "Reshape"
+      input: "Reshape_3"
+      input: "Const_42/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_9"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 14
+            }
+            dim {
+              size: 4
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_9"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 4
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_43/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\016\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_9"
+      op: "RandomUniform"
+      input: "Const_43/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_44/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_9"
+      op: "Mul"
+      input: "RandomUniform_9"
+      input: "Const_44/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_18"
+      op: "Assign"
+      input: "SAVEW2018/Variable_9"
+      input: "Multiply_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_45/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 4
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_46/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_9"
+      op: "Fill"
+      input: "Const_45/Const"
+      input: "Const_46/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_19"
+      op: "Assign"
+      input: "SAVEB2018/Variable_9"
+      input: "Fill_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_9"
+      op: "Conv2D"
+      input: "Reshape_4"
+      input: "SAVEW2018/Variable_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_9"
+      op: "BiasAdd"
+      input: "Conv2D_9"
+      input: "SAVEB2018/Variable_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_6"
+      op: "Relu"
+      input: "BiasAdd_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_10"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 2
+            }
+            dim {
+              size: 2
+            }
+            dim {
+              size: 4
+            }
+            dim {
+              size: 1
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_10"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_47/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\002\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_10"
+      op: "RandomUniform"
+      input: "Const_47/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_48/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_10"
+      op: "Mul"
+      input: "RandomUniform_10"
+      input: "Const_48/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_20"
+      op: "Assign"
+      input: "SAVEW2018/Variable_10"
+      input: "Multiply_10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_49/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_50/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_10"
+      op: "Fill"
+      input: "Const_49/Const"
+      input: "Const_50/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_21"
+      op: "Assign"
+      input: "SAVEB2018/Variable_10"
+      input: "Fill_10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_10"
+      op: "Conv2D"
+      input: "Relu_6"
+      input: "SAVEW2018/Variable_10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_10"
+      op: "BiasAdd"
+      input: "Conv2D_10"
+      input: "SAVEB2018/Variable_10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Const_51/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\377\377\377\377"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_6"
+      op: "Reshape"
+      input: "BiasAdd_10"
+      input: "Const_51/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Sigmoid"
+      op: "Sigmoid"
+      input: "Reshape_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_11"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 837
+            }
+            dim {
+              size: 3348
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_11"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 3348
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_52/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "E\003\000\000\000\000\000\000\024\r\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_11"
+      op: "RandomUniform"
+      input: "Const_52/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_53/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_11"
+      op: "Mul"
+      input: "RandomUniform_11"
+      input: "Const_53/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_22"
+      op: "Assign"
+      input: "SAVEW2018/Variable_11"
+      input: "Multiply_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_54/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\024\r\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_55/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_11"
+      op: "Fill"
+      input: "Const_54/Const"
+      input: "Const_55/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node {
+      name: "Assign_23"
+      op: "Assign"
+      input: "SAVEB2018/Variable_11"
+      input: "Fill_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "MatMul"
+      op: "MatMul"
+      input: "Sigmoid"
+      input: "SAVEW2018/Variable_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+    }
+    node {
+      name: "Add"
+      op: "Add"
+      input: "MatMul"
+      input: "SAVEB2018/Variable_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_12"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 14
+            }
+            dim {
+              size: 4
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_12"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 4
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_56/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\016\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_12"
+      op: "RandomUniform"
+      input: "Const_56/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_57/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_12"
+      op: "Mul"
+      input: "RandomUniform_12"
+      input: "Const_57/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_24"
+      op: "Assign"
+      input: "SAVEW2018/Variable_12"
+      input: "Multiply_12"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_58/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 4
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_59/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_12"
+      op: "Fill"
+      input: "Const_58/Const"
+      input: "Const_59/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_25"
+      op: "Assign"
+      input: "SAVEB2018/Variable_12"
+      input: "Fill_12"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_11"
+      op: "Conv2D"
+      input: "Reshape_5"
+      input: "SAVEW2018/Variable_12"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_11"
+      op: "BiasAdd"
+      input: "Conv2D_11"
+      input: "SAVEB2018/Variable_12"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Relu_7"
+      op: "Relu"
+      input: "BiasAdd_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_13"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 2
+            }
+            dim {
+              size: 2
+            }
+            dim {
+              size: 4
+            }
+            dim {
+              size: 1
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_13"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_60/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\002\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\004\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_13"
+      op: "RandomUniform"
+      input: "Const_60/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_61/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_13"
+      op: "Mul"
+      input: "RandomUniform_13"
+      input: "Const_61/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_26"
+      op: "Assign"
+      input: "SAVEW2018/Variable_13"
+      input: "Multiply_13"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_62/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_63/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_13"
+      op: "Fill"
+      input: "Const_62/Const"
+      input: "Const_63/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Assign_27"
+      op: "Assign"
+      input: "SAVEB2018/Variable_13"
+      input: "Fill_13"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Conv2D_12"
+      op: "Conv2D"
+      input: "Relu_7"
+      input: "SAVEW2018/Variable_13"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+      attr {
+        key: "dilations"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "SAME"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "use_cudnn_on_gpu"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "BiasAdd_12"
+      op: "BiasAdd"
+      input: "Conv2D_12"
+      input: "SAVEB2018/Variable_13"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "data_format"
+        value {
+          s: "NHWC"
+        }
+      }
+    }
+    node {
+      name: "Const_64/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\377\377\377\377"
+          }
+        }
+      }
+    }
+    node {
+      name: "Reshape_7"
+      op: "Reshape"
+      input: "BiasAdd_12"
+      input: "Const_64/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tshape"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Sigmoid_1"
+      op: "Sigmoid"
+      input: "Reshape_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "SAVEW2018/Variable_14"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 403
+            }
+            dim {
+              size: 1612
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "SAVEB2018/Variable_14"
+      op: "VariableV2"
+      attr {
+        key: "container"
+        value {
+          s: ""
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1
+            }
+            dim {
+              size: 1612
+            }
+          }
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: ""
+        }
+      }
+    }
+    node {
+      name: "Const_65/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\223\001\000\000\000\000\000\000L\006\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "RandomUniform_14"
+      op: "RandomUniform"
+      input: "Const_65/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 0
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 0
+        }
+      }
+    }
+    node {
+      name: "Const_66/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.1
+          }
+        }
+      }
+    }
+    node {
+      name: "Multiply_14"
+      op: "Mul"
+      input: "RandomUniform_14"
+      input: "Const_66/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Assign_28"
+      op: "Assign"
+      input: "SAVEW2018/Variable_14"
+      input: "Multiply_14"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "Const_67/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\000\000\000\000L\006\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_68/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "Fill_14"
+      op: "Fill"
+      input: "Const_67/Const"
+      input: "Const_68/Const"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "index_type"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node {
+      name: "Assign_29"
+      op: "Assign"
+      input: "SAVEB2018/Variable_14"
+      input: "Fill_14"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "MatMul_1"
+      op: "MatMul"
+      input: "Sigmoid_1"
+      input: "SAVEW2018/Variable_14"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "transpose_a"
+        value {
+          b: false
+        }
+      }
+      attr {
+        key: "transpose_b"
+        value {
+          b: false
+        }
+      }
+    }
+    node {
+      name: "Add_1"
+      op: "Add"
+      input: "MatMul_1"
+      input: "SAVEB2018/Variable_14"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+    }
+    node {
+      name: "Const_69/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "Concat_1"
+      op: "ConcatV2"
+      input: "Add"
+      input: "Add_1"
+      input: "Const_69/Const"
+      attr {
+        key: "N"
+        value {
+          i: 2
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tidx"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "Const_70/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "Concat_2"
+      op: "ConcatV2"
+      input: "Concat"
+      input: "Concat_1"
+      input: "Const_70/Const"
+      attr {
+        key: "N"
+        value {
+          i: 2
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "Tidx"
+        value {
+          type: DT_INT32
+        }
+      }
+    }
+    node {
+      name: "SAVED_TENSOR_NAME2018/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 30
+              }
+            }
+            tensor_content: "\022\024\024\024\024\024\024\024\024\024\025\025\025\025\025\022\024\024\024\024\024\024\024\024\024\025\025\025\025\025SAVEW2018/VariableSAVEW2018/Variable_1SAVEW2018/Variable_2SAVEW2018/Variable_3SAVEW2018/Variable_4SAVEW2018/Variable_5SAVEW2018/Variable_6SAVEW2018/Variable_7SAVEW2018/Variable_8SAVEW2018/Variable_9SAVEW2018/Variable_10SAVEW2018/Variable_11SAVEW2018/Variable_12SAVEW2018/Variable_13SAVEW2018/Variable_14SAVEB2018/VariableSAVEB2018/Variable_1SAVEB2018/Variable_2SAVEB2018/Variable_3SAVEB2018/Variable_4SAVEB2018/Variable_5SAVEB2018/Variable_6SAVEB2018/Variable_7SAVEB2018/Variable_8SAVEB2018/Variable_9SAVEB2018/Variable_10SAVEB2018/Variable_11SAVEB2018/Variable_12SAVEB2018/Variable_13SAVEB2018/Variable_14"
+          }
+        }
+      }
+    }
+    node {
+      name: "CHECKPOINT_NAMES2018/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "variables"
+          }
+        }
+      }
+    }
+    node {
+      name: "SaveV2/Const/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 30
+              }
+            }
+            tensor_content: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "SaveV2/SaveV2"
+      op: "SaveV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "SAVED_TENSOR_NAME2018/Const"
+      input: "SaveV2/Const/Const"
+      input: "SAVEW2018/Variable"
+      input: "SAVEW2018/Variable_1"
+      input: "SAVEW2018/Variable_2"
+      input: "SAVEW2018/Variable_3"
+      input: "SAVEW2018/Variable_4"
+      input: "SAVEW2018/Variable_5"
+      input: "SAVEW2018/Variable_6"
+      input: "SAVEW2018/Variable_7"
+      input: "SAVEW2018/Variable_8"
+      input: "SAVEW2018/Variable_9"
+      input: "SAVEW2018/Variable_10"
+      input: "SAVEW2018/Variable_11"
+      input: "SAVEW2018/Variable_12"
+      input: "SAVEW2018/Variable_13"
+      input: "SAVEW2018/Variable_14"
+      input: "SAVEB2018/Variable"
+      input: "SAVEB2018/Variable_1"
+      input: "SAVEB2018/Variable_2"
+      input: "SAVEB2018/Variable_3"
+      input: "SAVEB2018/Variable_4"
+      input: "SAVEB2018/Variable_5"
+      input: "SAVEB2018/Variable_6"
+      input: "SAVEB2018/Variable_7"
+      input: "SAVEB2018/Variable_8"
+      input: "SAVEB2018/Variable_9"
+      input: "SAVEB2018/Variable_10"
+      input: "SAVEB2018/Variable_11"
+      input: "SAVEB2018/Variable_12"
+      input: "SAVEB2018/Variable_13"
+      input: "SAVEB2018/Variable_14"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/NoOp"
+      op: "NoOp"
+      input: "^RestoreV2/Assign"
+      input: "^RestoreV2/Assign_1"
+      input: "^RestoreV2/Assign_10"
+      input: "^RestoreV2/Assign_11"
+      input: "^RestoreV2/Assign_12"
+      input: "^RestoreV2/Assign_13"
+      input: "^RestoreV2/Assign_14"
+      input: "^RestoreV2/Assign_15"
+      input: "^RestoreV2/Assign_16"
+      input: "^RestoreV2/Assign_17"
+      input: "^RestoreV2/Assign_18"
+      input: "^RestoreV2/Assign_19"
+      input: "^RestoreV2/Assign_2"
+      input: "^RestoreV2/Assign_20"
+      input: "^RestoreV2/Assign_21"
+      input: "^RestoreV2/Assign_22"
+      input: "^RestoreV2/Assign_23"
+      input: "^RestoreV2/Assign_24"
+      input: "^RestoreV2/Assign_25"
+      input: "^RestoreV2/Assign_26"
+      input: "^RestoreV2/Assign_27"
+      input: "^RestoreV2/Assign_28"
+      input: "^RestoreV2/Assign_29"
+      input: "^RestoreV2/Assign_3"
+      input: "^RestoreV2/Assign_4"
+      input: "^RestoreV2/Assign_5"
+      input: "^RestoreV2/Assign_6"
+      input: "^RestoreV2/Assign_7"
+      input: "^RestoreV2/Assign_8"
+      input: "^RestoreV2/Assign_9"
+    }
+    node {
+      name: "RestoreV2/Const/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_1/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const/Const"
+      input: "RestoreV2/Const_1/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign"
+      op: "Assign"
+      input: "SAVEW2018/Variable"
+      input: "RestoreV2/RestoreV2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_2/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_1"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_3/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_1"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_2/Const"
+      input: "RestoreV2/Const_3/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_1"
+      op: "Assign"
+      input: "SAVEW2018/Variable_1"
+      input: "RestoreV2/RestoreV2_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_4/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_2"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_5/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_2"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_4/Const"
+      input: "RestoreV2/Const_5/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_2"
+      op: "Assign"
+      input: "SAVEW2018/Variable_2"
+      input: "RestoreV2/RestoreV2_2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_6/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_3"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_7/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_3"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_6/Const"
+      input: "RestoreV2/Const_7/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_3"
+      op: "Assign"
+      input: "SAVEW2018/Variable_3"
+      input: "RestoreV2/RestoreV2_3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_8/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_4"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_9/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_4"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_8/Const"
+      input: "RestoreV2/Const_9/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_4"
+      op: "Assign"
+      input: "SAVEW2018/Variable_4"
+      input: "RestoreV2/RestoreV2_4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_10/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_5"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_11/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_5"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_10/Const"
+      input: "RestoreV2/Const_11/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_5"
+      op: "Assign"
+      input: "SAVEW2018/Variable_5"
+      input: "RestoreV2/RestoreV2_5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_12/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_6"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_13/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_6"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_12/Const"
+      input: "RestoreV2/Const_13/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_6"
+      op: "Assign"
+      input: "SAVEW2018/Variable_6"
+      input: "RestoreV2/RestoreV2_6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_14/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_7"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_15/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_7"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_14/Const"
+      input: "RestoreV2/Const_15/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_7"
+      op: "Assign"
+      input: "SAVEW2018/Variable_7"
+      input: "RestoreV2/RestoreV2_7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_16/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_8"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_17/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_8"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_16/Const"
+      input: "RestoreV2/Const_17/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_8"
+      op: "Assign"
+      input: "SAVEW2018/Variable_8"
+      input: "RestoreV2/RestoreV2_8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_18/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_9"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_19/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_9"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_18/Const"
+      input: "RestoreV2/Const_19/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_9"
+      op: "Assign"
+      input: "SAVEW2018/Variable_9"
+      input: "RestoreV2/RestoreV2_9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_20/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_10"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_21/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_10"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_20/Const"
+      input: "RestoreV2/Const_21/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_10"
+      op: "Assign"
+      input: "SAVEW2018/Variable_10"
+      input: "RestoreV2/RestoreV2_10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_22/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_11"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_23/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_11"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_22/Const"
+      input: "RestoreV2/Const_23/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_11"
+      op: "Assign"
+      input: "SAVEW2018/Variable_11"
+      input: "RestoreV2/RestoreV2_11"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_24/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_12"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_25/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_12"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_24/Const"
+      input: "RestoreV2/Const_25/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_12"
+      op: "Assign"
+      input: "SAVEW2018/Variable_12"
+      input: "RestoreV2/RestoreV2_12"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_26/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_13"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_27/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_13"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_26/Const"
+      input: "RestoreV2/Const_27/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_13"
+      op: "Assign"
+      input: "SAVEW2018/Variable_13"
+      input: "RestoreV2/RestoreV2_13"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_28/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEW2018/Variable_14"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_29/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_14"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_28/Const"
+      input: "RestoreV2/Const_29/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_14"
+      op: "Assign"
+      input: "SAVEW2018/Variable_14"
+      input: "RestoreV2/RestoreV2_14"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_30/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_31/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_15"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_30/Const"
+      input: "RestoreV2/Const_31/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_15"
+      op: "Assign"
+      input: "SAVEB2018/Variable"
+      input: "RestoreV2/RestoreV2_15"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_32/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_1"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_33/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_16"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_32/Const"
+      input: "RestoreV2/Const_33/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_16"
+      op: "Assign"
+      input: "SAVEB2018/Variable_1"
+      input: "RestoreV2/RestoreV2_16"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_34/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_2"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_35/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_17"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_34/Const"
+      input: "RestoreV2/Const_35/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_17"
+      op: "Assign"
+      input: "SAVEB2018/Variable_2"
+      input: "RestoreV2/RestoreV2_17"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_36/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_3"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_37/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_18"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_36/Const"
+      input: "RestoreV2/Const_37/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_18"
+      op: "Assign"
+      input: "SAVEB2018/Variable_3"
+      input: "RestoreV2/RestoreV2_18"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_38/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_4"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_39/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_19"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_38/Const"
+      input: "RestoreV2/Const_39/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_19"
+      op: "Assign"
+      input: "SAVEB2018/Variable_4"
+      input: "RestoreV2/RestoreV2_19"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_40/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_5"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_41/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_20"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_40/Const"
+      input: "RestoreV2/Const_41/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_20"
+      op: "Assign"
+      input: "SAVEB2018/Variable_5"
+      input: "RestoreV2/RestoreV2_20"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_42/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_6"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_43/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_21"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_42/Const"
+      input: "RestoreV2/Const_43/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_21"
+      op: "Assign"
+      input: "SAVEB2018/Variable_6"
+      input: "RestoreV2/RestoreV2_21"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_44/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_7"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_45/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_22"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_44/Const"
+      input: "RestoreV2/Const_45/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_22"
+      op: "Assign"
+      input: "SAVEB2018/Variable_7"
+      input: "RestoreV2/RestoreV2_22"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_46/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_8"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_47/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_23"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_46/Const"
+      input: "RestoreV2/Const_47/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_23"
+      op: "Assign"
+      input: "SAVEB2018/Variable_8"
+      input: "RestoreV2/RestoreV2_23"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_48/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_9"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_49/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_24"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_48/Const"
+      input: "RestoreV2/Const_49/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_24"
+      op: "Assign"
+      input: "SAVEB2018/Variable_9"
+      input: "RestoreV2/RestoreV2_24"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_50/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_10"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_51/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_25"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_50/Const"
+      input: "RestoreV2/Const_51/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_25"
+      op: "Assign"
+      input: "SAVEB2018/Variable_10"
+      input: "RestoreV2/RestoreV2_25"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_52/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_11"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_53/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_26"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_52/Const"
+      input: "RestoreV2/Const_53/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_26"
+      op: "Assign"
+      input: "SAVEB2018/Variable_11"
+      input: "RestoreV2/RestoreV2_26"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_54/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_12"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_55/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_27"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_54/Const"
+      input: "RestoreV2/Const_55/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_27"
+      op: "Assign"
+      input: "SAVEB2018/Variable_12"
+      input: "RestoreV2/RestoreV2_27"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_56/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_13"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_57/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_28"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_56/Const"
+      input: "RestoreV2/Const_57/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_28"
+      op: "Assign"
+      input: "SAVEB2018/Variable_13"
+      input: "RestoreV2/RestoreV2_28"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_58/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: "SAVEB2018/Variable_14"
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Const_59/Const"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 1
+              }
+            }
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/RestoreV2_29"
+      op: "RestoreV2"
+      input: "CHECKPOINT_NAMES2018/Const"
+      input: "RestoreV2/Const_58/Const"
+      input: "RestoreV2/Const_59/Const"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+          }
+        }
+      }
+    }
+    node {
+      name: "RestoreV2/Assign_29"
+      op: "Assign"
+      input: "SAVEB2018/Variable_14"
+      input: "RestoreV2/RestoreV2_29"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "use_locking"
+        value {
+          b: true
+        }
+      }
+      attr {
+        key: "validate_shape"
+        value {
+          b: true
+        }
+      }
+    }
+    library {
+    }
+    versions {
+      producer: 27
+    }
+  }
+  saver_def {
+    filename_tensor_name: "CHECKPOINT_NAMES2018/Const"
+    save_tensor_name: "CHECKPOINT_NAMES2018/Const"
+    restore_op_name: "RestoreV2/NoOp"
+  }
+  collection_def {
+    key: "B_TENSOR_NAME2018"
+    value {
+      node_list {
+        value: "SAVEB2018/Variable"
+        value: "SAVEB2018/Variable_1"
+        value: "SAVEB2018/Variable_2"
+        value: "SAVEB2018/Variable_3"
+        value: "SAVEB2018/Variable_4"
+        value: "SAVEB2018/Variable_5"
+        value: "SAVEB2018/Variable_6"
+        value: "SAVEB2018/Variable_7"
+        value: "SAVEB2018/Variable_8"
+        value: "SAVEB2018/Variable_9"
+        value: "SAVEB2018/Variable_10"
+        value: "SAVEB2018/Variable_11"
+        value: "SAVEB2018/Variable_12"
+        value: "SAVEB2018/Variable_13"
+        value: "SAVEB2018/Variable_14"
+      }
+    }
+  }
+  collection_def {
+    key: "OUTPUT_NAMES2018"
+    value {
+      node_list {
+        value: "INPUT2018/Placeholder"
+        value: "TARGET2018/Placeholder"
+        value: "Concat_2"
+      }
+    }
+  }
+  collection_def {
+    key: "W_TENSOR_NAME2018"
+    value {
+      node_list {
+        value: "SAVEW2018/Variable"
+        value: "SAVEW2018/Variable_1"
+        value: "SAVEW2018/Variable_2"
+        value: "SAVEW2018/Variable_3"
+        value: "SAVEW2018/Variable_4"
+        value: "SAVEW2018/Variable_5"
+        value: "SAVEW2018/Variable_6"
+        value: "SAVEW2018/Variable_7"
+        value: "SAVEW2018/Variable_8"
+        value: "SAVEW2018/Variable_9"
+        value: "SAVEW2018/Variable_10"
+        value: "SAVEW2018/Variable_11"
+        value: "SAVEW2018/Variable_12"
+        value: "SAVEW2018/Variable_13"
+        value: "SAVEW2018/Variable_14"
+      }
+    }
+  }
+  collection_def {
+    key: "saved_model_main_op"
+    value {
+      node_list {
+        value: "NoOp_1"
+      }
+    }
+  }
+}
