@@ -4,6 +4,8 @@ This program uses the Tensorflow framework to track the position of each charact
 
 ![](./video/Preview.png)
 
+[Youtube video](https://www.youtube.com/watch?v=l0xAZPkkdqQ)
+
 ## Required library
 
 The tesnorflow 1.12.0 C++ library and the OpenCV 3.4 library are required to compile the program.
